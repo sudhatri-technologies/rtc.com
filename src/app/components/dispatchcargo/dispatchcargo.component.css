@@ -1,0 +1,42 @@
+:host ::ng-deep .p-dropdown {
+    width:60%;
+    height:2.5rem;
+    outline: none;
+    border: 1px solid #000;
+    margin-top:10px;
+    margin-bottom:10px;
+
+  }
+
+  :host ::ng-deep .p-calendar {
+    width:60%;
+    height: 2.5rem;
+  }
+  :host ::ng-deep .p-inputtext{
+      width:60%;
+  }
+   
+  
+  label {
+    display: inline-block;
+    width: 154px;
+    text-align: left;
+  } 
+  div {
+    margin-bottom: 15px;
+  }
+   .p-inputnumber {
+    display: inline;
+}
+
+:host ::ng-deep  .p-inputnumber {
+  display: contents;
+  width: 60%;
+}
+p-inputnumber{
+  width:60%;
+  height:2rem;
+}
+.next{
+    margin-bottom:20px;
+  }

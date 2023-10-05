@@ -1,0 +1,84 @@
+<div class="container-fluid home" style="background-image: url(assets/images/home-bg.png)" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card bg-white p-4 ">
+
+                    <img src="assets/images/homeform-logo.png" alt="image" width="auto" height="auto">
+
+                    
+
+
+                   
+                    <form [formGroup]="signForm" #form="ngForm">
+
+                        <div class="field mt-5 ">
+                            <label >Agent Id</label>
+                            <input formControlName="agentId" type="text" class="inputfield w-full  h-2rem outline-none">
+
+                             <!-- <small *ngIf="(agentId && agentId.invalid && agentId.touched) || (agentId && agentId.invalid && form.submitted)" class="text-danger">Agent Id is required</small> -->
+
+
+                             <div *ngIf="agentId && agentId.invalid && agentId.touched">
+                                <small *ngIf="agentId.errors?.['required']" class="text-danger">Agent Id is required</small>
+                                <small *ngIf="agentId.errors?.['pattern']" class="text-danger">enter your depo code in capital letters,then for RTC Agent enter 'RA' (or) for private agent enter 'PA' and then your id </small>
+
+
+                             </div>
+                            
+
+                        
+                        
+                            </div>
+                        <div class="field">
+                            <label >Password</label>
+                            <input formControlName="password" type="password" class="inputfield w-full h-2rem outline-none">
+
+                            <div *ngIf="(password && password.invalid && password.touched) || (password && password.invalid && form.submitted)">
+                           
+                                <small *ngIf="password.errors?.['required']" class="text-danger">Password is required</small>
+                                    <small *ngIf="password.errors?.['minlength']" class="text-danger">Password must be 5 characters<br></small>
+                                    <small *ngIf="password.errors?.['maxlength']" class="text-danger">password must not be above 8 characters <br></small>
+                                    <small *ngIf="password.errors?.['pattern']" class="text-danger">password should contain (A-Z or a-z or 0-9 ) and one special character between(@,#,$,%,&,*)</small>
+                               </div>
+                        
+                        
+                        
+                        </div>
+    
+    
+                        
+                        <p-dropdown [options]="cities" formControlName="userType"  placeholder="Select User Type" optionLabel="name"autoWidth="false"  
+            ></p-dropdown> 
+            
+            <div *ngIf="(userType && userType.invalid && userType.touched) || (userType && userType.invalid && form.submitted)" class="text-danger">
+                Usertype is required
+            </div>
+    
+            <p-button  [disabled]="signForm.invalid" type="submit"  label="Sign in"  [routerLink]="signForm.valid ? ['/consignment'] : []"></p-button>
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+
+
+        </div>
+    </div>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-4 next">
+                <p-button  routerLink='/consignment' label="Next Page"  ></p-button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+  </div> -->
+
+  

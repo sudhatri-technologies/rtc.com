@@ -1,0 +1,212 @@
+<div class="container-fluid p-0">
+    <img src="assets/images/rtc.jpg"   alt="Image" class="img-fluid mb-6" >
+  </div>
+
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-10">
+
+        </div>
+        <div class="col-md-2 text-center mb-5">
+            <p-button  routerLink='/home' label="Sign out"  ></p-button>
+
+        </div>
+        
+    </div>
+</div>
+  
+ <form [formGroup]="consignForm"  #form="ngForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+               <div>
+                   <label >Depo/Bus Station</label>
+                   <p-dropdown [options]="cities"  formControlName="depo" placeholder="Select Depo/Bus Station" optionLabel="name"autoWidth="false"  
+                   ></p-dropdown> 
+
+                   <div *ngIf="(depo && depo.invalid && depo.touched) || (depo && depo.invalid && form.submitted)" class="text-danger text-center">Depo is required</div>
+               
+               
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div>
+                   <label >Region</label>
+                   <p-dropdown [options]="cities" formControlName="region" placeholder="Select Region" optionLabel="name"autoWidth="false"  
+                       ></p-dropdown> 
+
+                       <div *ngIf="(region && region.invalid && region.touched) || (region && region.invalid && form.submitted)" class="text-danger text-center">Region is required</div>
+                  </div>
+            </div>
+        </div>
+   
+        <div class="row">
+            <div class="col-md-6">
+               <label >Date</label>
+               <p-calendar formControlName="date"  [showIcon]="true" inputId="icon"></p-calendar>
+
+               <div *ngIf="(date && date.invalid && date.touched) || (date && date.invalid && form.submitted)" class="text-danger text-center">Date is required</div>
+            </div>
+        </div>
+   
+        <div class="row">
+           <div class="col-md-6">
+               <div>
+                   <label >Consignment Description</label>
+                     <textarea rows="3" cols="31" formControlName="consignDes" pInputTextarea class="outline-none"></textarea>
+
+                     <div *ngIf="(consignDes && consignDes.invalid && consignDes.touched) || (consignDes && consignDes.invalid && form.submitted)" class="text-danger text-center">Consignment Description is required</div>
+                        </div>
+           </div>
+       </div>
+   
+       <div class="row">
+           <div class="col-md-6">
+               <div>
+                   <label >From</label>
+                   <p-dropdown [options]="cities"  formControlName="from" placeholder="Select From" optionLabel="name"autoWidth="false"  
+                       ></p-dropdown>
+                       
+                       <div *ngIf="(from && from.invalid && from.touched) || (from && from.invalid && form.submitted)" class="text-danger text-center">From is required</div>
+                  </div>
+           </div>
+           <div class="col-md-6">
+               <div>
+                   <label >To</label>
+                   <p-dropdown [options]="cities" formControlName="to"  placeholder="Select To" optionLabel="name"autoWidth="false"  
+                       ></p-dropdown> 
+
+                       <div *ngIf="(to && to.invalid && to.touched) || (to && to.invalid && form.submitted)" class="text-danger text-center">To is required</div>
+                  </div>
+           </div>
+       </div>
+   
+       <div class="row">
+           <div class="col-md-6">
+               <div>
+                   <label >Consignment Type</label>
+                   <p-dropdown [options]="cities"   formControlName="consignType" placeholder="Select Consignment Type" optionLabel="name"autoWidth="false"  
+                       ></p-dropdown> 
+                       <div *ngIf="(consignType && consignType.invalid && consignType.touched) || (consignType && consignType.invalid && form.submitted)" class="text-danger text-center">Consignment type is required</div>
+                  </div>
+           </div>
+       <div class="col-md-6">
+           <div>
+               <label >Volume</label>
+               <p-dropdown [options]="cities"  formControlName="volume" placeholder="Select Volume" optionLabel="name"autoWidth="false"  
+                   ></p-dropdown> 
+
+                   <div *ngIf="(volume && volume.invalid && volume.touched) || (volume && volume.invalid && form.submitted)" class="text-danger text-center">Volume is required</div>
+              </div>
+       </div>
+   
+         </div>
+   
+         <div class="row">
+             <div class="col-md-6">
+               <div>
+                   <label>Consignee Name</label>
+                   <input type="text"  formControlName="consignName"pInputText class="h-2rem" > 
+
+                   <div *ngIf="(consignName && consignName.invalid && consignName.touched) || (consignName && consignName.invalid && form.submitted)" class="text-danger text-center">Consignee name is required</div>
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div>
+                   <label>Contact Number</label>
+                   <p-inputNumber [useGrouping]="false"  formControlName="consignNumber"></p-inputNumber>
+                   <div *ngIf="(consignNumber && consignNumber.invalid && consignNumber.touched) || (consignNumber && consignNumber.invalid && form.submitted)" class="text-danger text-center">Contact number is required</div>
+               </div>
+             </div>
+         </div>
+   
+         <div class="row">
+           <div class="col-md-6">
+             <div>
+                 <label>Receiver Name</label>
+                 <input type="text"   formControlName="receiverName"pInputText class="h-2rem" > 
+
+                 <div *ngIf="(receiverName && receiverName.invalid && receiverName.touched) || (receiverName && receiverName.invalid && form.submitted)" class="text-danger text-center">Receiver name is required</div>
+
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div>
+                 <label>Contact Number</label>
+                 <p-inputNumber  [useGrouping]="false" formControlName="receiverNumber"></p-inputNumber>
+
+                 <div *ngIf="(receiverNumber && receiverNumber.invalid && receiverNumber.touched) || (receiverNumber && receiverNumber.invalid && form.submitted)" class="text-danger text-center">Contact number is required</div>
+
+             </div>
+           </div>
+       </div>
+   
+       <div class="row">
+           <div class="col-md-6">
+               <div>
+                   <label >Receiver Address</label>
+                     <textarea rows="3" cols="31"  formControlName="receiverAddress" pInputTextarea class="outline-none"></textarea>
+               
+                     <div *ngIf="(receiverAddress && receiverAddress.invalid && receiverAddress.touched) || (receiverAddress && receiverAddress.invalid && form.submitted)" class="text-danger text-center">Receiver address is required</div>
+               
+                    </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-6">
+               <div>
+                   <label>Booked By<br>(Agent Name)</label>
+                   <input type="text"   formControlName="bookedBy" pInputText class="h-2rem" > 
+
+                   <div *ngIf="(bookedBy  && bookedBy.invalid && bookedBy.touched) || (bookedBy  && bookedBy.invalid  && form.submitted)" class="text-danger text-center">Agent name is required</div>
+                   
+               </div>
+           </div>
+           <div class="col-md-6">
+               <div>
+                   <label>Contact Number</label>
+                   <p-inputNumber [useGrouping]="false"  formControlName="contactNumber"></p-inputNumber>
+                   <div *ngIf="(contactNumber  && contactNumber.invalid && contactNumber.touched) || (contactNumber  && contactNumber.invalid && form.submitted)" class="text-danger text-center">Contact number is required</div>
+
+               </div>
+           </div>
+       </div>
+   
+       
+   
+       <div class="row">
+           <div class="col-md-3">
+               <button pButton pRipple type="button" label="Booking Cargo" class="p-button-rounded p-button-primary"></button>
+   
+           </div>
+           <div class="col-md-3">
+   
+           </div>
+           <div class="col-md-3">
+               <button pButton pRipple type="button" type="submit" label="Submit" class="p-button-rounded p-button-success"></button> 
+   
+           </div>
+           <div class="col-md-3">
+   
+           </div>
+   
+       </div>
+   
+   
+    </div>
+ </form>
+
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+        <div class="col-md-4 next">
+            <p-button  routerLink='/createmanifest' label="Next Page"  ></p-button>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
